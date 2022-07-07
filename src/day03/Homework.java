@@ -46,7 +46,6 @@ class Person {
         this.age = age;
         this.isMarried = isMarried;
     }
-
     public static boolean marryWith(Person p1, Person p2) {
         //1.都要未婚
         //2.要异性
@@ -55,34 +54,40 @@ class Person {
                 &&( p1.sex != p2.sex)
                 && (p1.sex == 1 ? p1.age >= 20 : p1.age >= 19 && p2.sex == 1 ? p2.age >=20 : p2.age >=19);
     }
-
     void study(String school) {
         System.out.println(this.name+"在"+school+"学校学习");
     }
 }
-
 public class Homework {
     public static void main(String[] args) {
-        Person p1 = new Person("张三", 1, 20, false) {
-            @Override
-            void study(String school) {
+//        Person p1 = new Person("张三", 1, 20, false) {
+        Person p1 = null;
+        Person p2 = null;
+        try {
+            p1 = new Person("张三", 1, 20, false) {
+                @Override
+                void study(String school) {
 //                Scanner scanner = new Scanner(System.in);
 //                System.out.print("请输入学习时间");
 //                int time = scanner.nextInt();
-                int time = 4;
-                System.out.println(getName() + "在" + school + "学校学习了" + time + "年");
-            }
-        };
-        Person p2 = new Person("李四", 0, 20, false) {
-            @Override
-            void study(String school) {
+                    int time = 4;
+                    System.out.println(getName() + "在" + school + "学校学习了" + time + "年");
+                }
+            };
+            p2 = new Person("李四", 0, 20, false) {
+                @Override
+                void study(String school) {
 //                Scanner scanner = new Scanner(System.in);
 //                System.out.print("请输入学习时间");
 //                int time = scanner.nextInt();
-                int time = 4;
-                System.out.println(getName() + "在" + school + "学校学习了" + time + "年");
-            }
-        };
+                    int time = 4;
+                    System.out.println(getName() + "在" + school + "学校学习了" + time + "年");
+                }
+            };
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         p1.study("闽江学院");
         p2.study("安徽信息工程学院");
 
