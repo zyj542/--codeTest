@@ -1,6 +1,5 @@
 package day04;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -12,7 +11,7 @@ import java.util.Date;
     add方法跳到前一周的周四，通过 xxxx获得是该年的第几天? get(Calendar.DAY_OF_YEAR)
     */
 public class Topic2 {
-    //    输入你生日的前一周的周四是该年的第几天？2000年05月21日
+    //    输入你生日前一周的周四是该年的第几天？2000年05月21日
 
     public static void main(String[] args) throws ParseException {
 //        周四晚上的想法
@@ -23,7 +22,8 @@ public class Topic2 {
 
     private static void second() {
         Calendar instance = Calendar.getInstance();
-        instance.set(2022,0,11);
+        instance.set(2000, Calendar.MAY,21);
+//        System.out.println(instance.get(Calendar.DAY_OF_YEAR));
         instance.add(Calendar.DAY_OF_WEEK, -4);
         int day = instance.get(Calendar.DAY_OF_YEAR);
         System.out.println("我生日的前一周的周四是该年的第"+day+"天");
